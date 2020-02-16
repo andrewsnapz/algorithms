@@ -1,5 +1,5 @@
 function search(nums, target) {
-    
+
 }
 
 //runtime of O(log n);
