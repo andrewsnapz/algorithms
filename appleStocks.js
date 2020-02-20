@@ -15,5 +15,15 @@ function getMaxProfit(stockPrices) {
 const stockPrices = [10, 7, 5, 8, 11, 9];
 const crappyDay = [9, 7, 4, 1];
 
-console.log(getMaxProfit(stockPrices)); //return 6;
-console.log(getMaxProfit(crappyDay)); 
+// console.log(getMaxProfit(stockPrices)); //return 6;
+// console.log(getMaxProfit(crappyDay)); 
+
+const asyncFunction = () => {
+    setTimeout(() => console.log(getMaxProfit(stockPrices)), 1000);
+}
+
+const promise = new Promise(asyncFunction)
+.then(result => console.log("result"))
+.catch(err => console.log(err));
+
+console.log(promise);
