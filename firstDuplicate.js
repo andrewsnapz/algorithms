@@ -17,4 +17,6 @@ const firstDuplicate = a => {
 }
 
 
+
+
 console.log(firstDuplicate([2, 1, 3, 5, 3, 2]));

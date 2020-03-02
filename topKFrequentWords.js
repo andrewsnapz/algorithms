@@ -13,9 +13,9 @@ const topKFrequent = function(words, k) {
     return helperFunction(cache, k);
 }
 
-function helperFunction(cache, k, array = []) {
+function helperFunction(cache, k, array = [], biggestCountWord = undefined) {
     for (let word in cache) {
-        if (cache[word] === k) {
+        if (cache[word] < Infinity) {
             array.push(word);
         }
     }

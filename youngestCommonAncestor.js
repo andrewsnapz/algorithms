@@ -5,27 +5,41 @@ class AncestralTree {
     }
   }
 
-function youngestCommonAncestor(topAncestor, descendantOne, descendantTwo) {
-    let descendantOneAncestors = [];
-    let descendantTwoAncestors = [];
-    let position1 = descendantOne;
-    let position2 = desendantTwo;
-
-    while (position1.ancestor !== topAncestor.name) {
-        descendantOneAncestors.push(position1.name);
-        position1 = position1.ancestor;
+function youngestCommonAncestor(topAncestor, descendantOne, descendantTwoAncestors) {
+    let descendantOneDepth = getDepth(topAncestor, descendantOne);
+    let descendantTwoDepth = getDepth(topAncestor, descendantTwo);
+    let depthDifference = Math.abs(descendantOneDepth - descendantTwoDepth);
+    let position1;
+    let position2; 
+    let movement = 0;
+    if (descendantOneDepth >= descendantTwoDepth) {
+        position = descendantOne;
+        position2 = descendantTwo;
+    } else if (descendantOneDepth < descendantTwoDepth) {
+        position1 = descendantTwo;
+        position2 = descendantOne;
     }
-
-    while (position2.ancestor !== topAncestor.name) {
-        descendantTwoAncestors.push(position2.name);
-        position2 = position2.ancestor;
-    }
-    for (let i = 0; i < descendantOneAncestors.length; i++) {
-        for (let x = 0; x < descendantTwoAncestors.length; x++) {
-            if (descendantOneAncestors[i] === descendantTwoAncestors[x]) {
-                return descendantOneAncestors[i];
-            }
+    while (position1) {
+        if (movement === depthDifference) {
+            if (position1.ancestor === position2.ancestor) {
+                return position1.ancestor;
+            } else {
+                break;
+             }
+        } else {
+            movement++;
+            position = position.ancestor;
         }
     }
     return topAncestor;
+}
+
+function getDepth(topAncestor, descendant) {
+    let position = descendant;
+    let depth = 0;
+    while (position.ancestor !== topAncestor.name) {
+        depth++;
+        position - position.ancestor;
+    }
+    return depth;
 }

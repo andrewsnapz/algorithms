@@ -13,14 +13,12 @@ MinStack.prototype.pop = function() {
 }
 
 MinStack.prototype.top = function() {
-    console.log(this.stack[this.stack.length - 1])
     return this.stack[this.stack.length - 1];
 } //get the top element
 
 MinStack.prototype.getMin = function() {
-    console.log(Math.min(...this.stack));
     return Math.min(...this.stack);
-} //get the smallest element in O(n) time
+} 
 
 const minStack = new MinStack();
 minStack.push(-2);
