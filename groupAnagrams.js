@@ -8,12 +8,7 @@ function groupAnagrams(strs, list = []) {
             cache[strs[0][i]]++;
         }
     }
-    console.log(cache)
-    let obj = Object.assign(cache);
-    console.log(obj)
-    // while(pointer < strs.length) {
-
-    // }
+    
 }
 
 let input = ["eat", "tea", "tan", "ate", "nat", "bat"];
