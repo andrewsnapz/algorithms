@@ -16,16 +16,33 @@
 //     return nums;
 // }
 
-var moveZeroes = function(nums) {
-    for (let i = 0; i < nums.length; i++) {
-        if (nums[i] === 0 && nums[i + 1] !== 0) {
-            nums.push(nums.shift());
-            i = i - 1;
+// var moveZeroes = function(nums) {
+//     for (let i = 0; i < nums.length; i++) {
+//         if (nums[i] === 0 && nums[i + 1] !== 0) {
+//             nums.push(nums.shift());
+//             i = i - 1;
+//         }
+//     }
+//     return nums.reverse();
+// };
+
+function moveZeroes(nums) {
+    let pointer = 0;
+    while (pointer < nums.length) {
+        if (nums[pointer] === 0 && nums[pointer + 1] !== 0) {
+            let splicedArr = nums.splice(pointer, 1);
+            console.log(splicedArr)
+            nums.concat(splicedArr);
+            console.log("this is nums after concat: ", nums)
+            pointer = 0;
+        } else {
+            pointer++;
         }
     }
-    return nums.reverse();
-};
+    console.log(nums);
+}
 
-let example1 = [1,0,0,1]; 
-console.log(moveZeroes(example1)); //[1,1,0,0];
-console.log(moveZeroes([1,0,1])); //[1,1,0];
+// let example1 = [1,0,0,1]; 
+// console.log(moveZeroes(example1)); //[1,1,0,0];
+// console.log(moveZeroes([1,0,1])); //[1,1,0];
+console.log(moveZeroes([0,1,0,3,12]))
