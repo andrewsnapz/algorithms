@@ -23,3 +23,5 @@ function lastStoneWeight(stones) {
 
 let array =  [2,7,4,1,8,1];
 console.log(lastStoneWeight(array)); // should return 1;
+
+// integrating using a heap?
