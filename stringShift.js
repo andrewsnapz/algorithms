@@ -33,17 +33,17 @@ const intoRange = (sArr, shiftCount) => {
     return newCount;
 }
 
-// let s1 = "abc";
-// let shift1 = [[0,1], [1,2]];
-// console.log(stringShift(s1, shift1)); // "cab"
+let s1 = "abc";
+let shift1 = [[0,1], [1,2]];
+console.log(stringShift(s1, shift1)); // "cab"
 
-// let s2= "abcdefg";
-// let shift2 = [[1,1], [1,1], [0,2], [1,3]];
-// console.log(stringShift(s2, shift2)); // "efgabcd"
+let s2= "abcdefg";
+let shift2 = [[1,1], [1,1], [0,2], [1,3]];
+console.log(stringShift(s2, shift2)); // "efgabcd"
 
-// let s3 = "wpdhhcj";
-// let shift3 = [[0,7],[1,7],[1,0],[1,3],[0,3],[0,6],[1,2]];
-// console.log(stringShift(s3, shift3)); // "hcjwpdh"
+let s3 = "wpdhhcj";
+let shift3 = [[0,7],[1,7],[1,0],[1,3],[0,3],[0,6],[1,2]];
+console.log(stringShift(s3, shift3)); // "hcjwpdh"
 
 let s4 = "xqgwkiqpif";
 let shift4 =  [[1,4],[0,7],[0,8],[0,7],[0,6],[1,3],[0,1],[1,7],[0,5],[0,6]];
