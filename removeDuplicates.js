@@ -15,5 +15,15 @@ const removeDuplicates = nums => {
     return nums.length;
 }
 
+// var removeDuplicates = function(nums) {
+//     let movingIndex = 0;
+//     for(let i = 1; i < nums.length; i++) {
+//         if (nums[movingIndex] === nums[i]) { continue; }
+//         movingIndex++
+//         nums[movingIndex] = nums[i];
+//     }
+//     return movingIndex + 1;
+// };
+
 console.log(removeDuplicates([0,0,1,1,1,2,2,3,3,4]));
 console.log(removeDuplicates([1,1,2]));
