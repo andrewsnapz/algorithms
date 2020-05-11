@@ -4,34 +4,19 @@ function ListNode(val) {
 }
 
 function removeKFromList(l, k) {
-    let currentNode = l;
-    let nextNode = currentNode.next;
-    while (currentNode) {
-        if (currentNode.value === k) {
-            currentNode.next = currentNode.next.next;
-        }
+    let map = {};
+    let length = 1;
+    let position = l;
+    while (position.next !== null) {
+        map[length] = position;
+        length++;
+        position = position.next;
     }
+    let kFromLength = length - k;
+    if (kFromLength === 0) {
+        l = l.next;
+    } else {
+        map[kFromLength].next = map[kFromLength + 1]? map[kFromLength + 1].next : null;
+    }
+    return l;
 }
-
-// 3 -> 1 -> 2 -> 3 -> 4 -> 5 
-//k:3
-
-// def removeKFromList(head, k):
-    
-//     if head == None:
-//         return head
-//     elif head.value == k:
-//         head = head.next
-        
-//     n = head
-     
-//     while n != None and n.next != None:
-//         if n.next.value == k:
-//             n.next = n.next.next
-//         else:
-//             n = n.next  
-    
-//     if n != None and n.value == k:
-//         head = head.next
-        
-//     return head

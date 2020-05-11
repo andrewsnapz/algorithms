@@ -21,7 +21,8 @@ class headAndTail {
 }
 
 function deleteNode(nodeToDelete) {
-
+    this.nodeToDelete.val = this.nodeToDelete.next.val;
+    this.nodeToDelete.next = this.nodeToDelete.next.next;
 }
 
 let linkedList = new headAndTail();
