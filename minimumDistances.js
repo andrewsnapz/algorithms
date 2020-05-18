@@ -16,8 +16,13 @@ function minimumDistances(a) {
             right--;
         }
     }
+    
+    if (distanceArr.length === 0) {
+        return -1;
+    }
     return Math.min(...distanceArr);
 };
 
 let input = [7,1,3,4,1,7];
 console.log(minimumDistances(input)); // 3
+console.log(minimumDistances([1,2,3,4,5])) //-1
