@@ -19,6 +19,20 @@ const howManyGames = (p,d,m,s, count=0) => {
 //m: mimumum discount
 //s: how much we have
 
-console.log(howManyGames(20,3,6,80)); //6
-console.log(howManyGames(20,3,6,85)); //7
+// function howManyGames(p,d,m,s) {
+//     let count = 0;
+//     while (s >= p) {
+//         s = s - p;
+//         count++;
+//         if (p > m) {
+//             p = p - d;
+//         } else {
+//             p = m;
+//         }
+//     }
+//     return count;
+// };
+
+// console.log(howManyGames(20,3,6,80)); //6
+// console.log(howManyGames(20,3,6,85)); //7
 console.log(howManyGames(83,31,1,6317)); //6155
