@@ -18,31 +18,51 @@ class ListNode {
     }
 }
 
-function getIntersectionNode(list1, list2) {
-    let position1 = list1;
-    let position2 = list2;
-    let list1Arr = [];
-    let list2Arr = [];
-    let intersectionElement;
+// function getIntersectionNode(list1, list2) {
+//     let position1 = list1;
+//     let position2 = list2;
+//     let list1Arr = [];
+//     let list2Arr = [];
+//     let intersectionElement;
 
-    while(position1) {
-        list1Arr.push(position1.val);
-        position1 = position1.next;
-    }
+//     while(position1) {
+//         list1Arr.push(position1.val);
+//         position1 = position1.next;
+//     }
 
-    while (position2) {
-        list2Arr.push(position2.val);
-        position2 = position2.next;
+//     while (position2) {
+//         list2Arr.push(position2.val);
+//         position2 = position2.next;
+//     }
+//     let lastElement1 = list1Arr.length - 1;
+//     let lastElement2 = list2Arr.length - 1;
+//     while (list1Arr[lastElement1] === list2Arr[lastElement2]) {
+//         intersectionElement = list1Arr[lastElement1];
+//         lastElement1--;
+//         lastElement2--;
+//     }
+//     console.log(intersectionElement);
+// }
+
+function getIntersectionNode(headA, headB) {
+    let set = new Set();
+    let positionA = headA;
+    while(positionA) {
+        set.add(positionA);
+        positionA = positionA.next;
+    }   
+    
+    let positionB = headB;
+    while (positionB) {
+        if (set.has(positionB)) {
+            return positionB;
+        } else {
+            positionB = positionB.next;
+        }
     }
-    let lastElement1 = list1Arr.length - 1;
-    let lastElement2 = list2Arr.length - 1;
-    while (list1Arr[lastElement1] === list2Arr[lastElement2]) {
-        intersectionElement = list1Arr[lastElement1];
-        lastElement1--;
-        lastElement2--;
-    }
-    console.log(intersectionElement);
+    return null;
 }
+
 
 const l1 = new ListNode(4);
 l1.add(1);
