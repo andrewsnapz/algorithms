@@ -2,14 +2,17 @@ function threeSum(nums) {
     //sums up to zero
     let pairs = [];
     let sortedArr = nums.sort((a,b) => a - b);
-
-    for (let i = 0 ; i< nums.length; i++) {
+    for (let i = 0 ; i< sortedArr.length; i++) {
         let leftPointer = i + 1;
         let rightPointer = nums.length - 1;
         const sum = nums[i] + nums[leftPointer] + nums[rightPointer];
         while (leftPointer < rightPointer) {
+            let potentialArr = [];
             if (sum === 0) {
-                pairs.push([nums[i], nums[leftPointer], nums[rightPointer]]);
+                potentialArr.push(nums[i], nums[leftPointer], nums[rightPointer]);
+                if (checkDuplicate(potentialArr, pairs)) {
+                    pairs.push([nums[i], nums[leftPointer], nums[rightPointer]]);
+                }
                 leftPointer++;
                 rightPointer--;
             } else if (sum < 0) { 
@@ -20,12 +23,47 @@ function threeSum(nums) {
         } 
     }
     return pairs;
-} 
+};
+
+const checkDuplicate = (array, pairs) => {
+    let stringArr = JSON.stringify(array);
+    console.log(stringArr)
+    for (let i=0; i < pairs.length; i++) {
+        if (JSON.stringify(pairs[i]) === stringArr) {
+            return false;
+        }
+    }
+    return true;
+};
+
+// const threeSum = nums => {
+//     let set = new Set();
+//     let sortedNums = nums.sort((a,b) => a-b);
+//     for (let i=0; i < sortedNums.length; i++) {
+//         let pointer1 = i + 1;
+//         let pointer2 = sortedNums.length - 1;
+//         const sum = sortedNums[i] + sortedNums[pointer1] + sortedNums[pointer2];
+//         while (pointer1 < pointer2) {
+//             if (sum === 0) {
+//                 set.add([sortedNums[i], sortedNums[pointer1], sortedNums[pointer2]]);
+//                 pointer1++;
+//                 pointer2--;
+//             } else if (sum < 0) {
+//                 pointer1++;
+//             } else if (sum > 0) {
+//                 pointer2--;
+//             }
+//         }
+//     }
+//     console.log(set)
+// }
 
 let example = [-1,0,1,2,-1,-4];
 let example2 = [0,0,0,0];
 console.log(threeSum(example)); 
 console.log(threeSum(example2)); //[[0,0,0]]
+console.log(threeSum([1,-1,-1,0]))
+console.log(threeSum([-2,0,0,2,2]))
 /*
 [
   [-1, 0, 1],
