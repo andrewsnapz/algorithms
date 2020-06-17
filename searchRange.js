@@ -26,3 +26,4 @@ const searchRange = (nums, target, low = 0, high = nums.length - 1) => {
 // console.log(searchRange([2,2], 1));
 // console.log(searchRange([1,2,3], 1));
 console.log(searchRange([3,3,3], 3));
+console.log('come back to finish this algo!')
