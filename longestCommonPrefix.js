@@ -39,5 +39,17 @@
 //     }
 // };
 
+const longestCommonPrefix = function(strs) {
+    if (!strs[0]) return '';
+    let result = '';
+    for (let j = 0; strs[0][j] !== undefined; j++) {
+      for (let i = 1; i < strs.length; i++) {
+        if (strs[i - 1][j] !== strs[i][j]) return result;
+      }
+      result += strs[0][j];
+    }
+    return result;
+  };
+
 console.log(longestCommonPrefix(["flowers", "flow", "flight"]));
 //Output: "fl"
