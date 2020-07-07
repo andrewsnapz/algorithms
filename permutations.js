@@ -27,8 +27,6 @@ const permute = letters => {
 };
 
 const dfs = (letters, path, used, permutations) => {
-    console.log(used);
-    console.log(path)
     if (path.length === letters.length) {
         permutations.push(Array.from(path));
         return;

@@ -2,7 +2,6 @@ function canFinish(numCourses, prerequisites) {
     
 }
 
-/*
-we need to check the first number in each pair,
-if this number doesnt equal the second number in other pairs, it doesnt have a prereq.
-*/
+// find the class that doesn't have a prereq
+// keep track of the class we've recently completed.
+// get rid of that element in the array
