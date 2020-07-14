@@ -13,3 +13,4 @@ const utopianTree = (n, growth=1) => {
 // console.log(utopianTree(1)) // 2
 // console.log(utopianTree(0)) // 1
 console.log(utopianTree(4)) // 7
+// eh
