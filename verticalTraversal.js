@@ -2,7 +2,7 @@ var verticalTraversal = function(root) {
     if (!root) return [];
     let coordinatesArray = [];
     getCoordinates(root, coordinatesArray);
-    console.log(coordinatesArray.sort();
+    console.log(coordinatesArray.sort()))
 };
 
 var getCoordinates = function(root, arr, x = 0, y = 0) {
