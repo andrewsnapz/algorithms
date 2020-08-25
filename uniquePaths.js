@@ -33,4 +33,5 @@ var uniquePaths = function(m,n) {
     move(0, 0, matrix);
     console.log(uniquePaths);
 }
+
 console.log(uniquePaths(3,2))
