@@ -15,7 +15,7 @@ function URLify(string, trueLength) {
             whitespaceCount = 0;
             index++;
         } else {
-            if (!whitespaceIndex) whitespaceIndex = index - 1;
+            if (!whitespaceIndex) whitespaceIndex = index;
             whitespaceCount++;
             index++;
         }
@@ -29,4 +29,4 @@ function URLify(string, trueLength) {
 }
 
 console.log(URLify("Mr John Smith    ")) // Mr%20John%20Smith
-console.log(URLify("  Hadoken   Shoryuken    SonicBoom"))
+// console.log(URLify("  Hadoken   Shoryuken    SonicBoom"))
