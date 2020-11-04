@@ -1,42 +1,46 @@
 function setZeroes(matrix) {
-    let n = matrix.length; // height
-    let m = matrix[0].length // width
+    let height = matrix.length;
+    let width = matrix[0].length;
+    let zeroArray = [];
 
-    function rowConverter(i, m, rowIndex = 0) {
-        matrix[i][rowIndex] = 0;
-        if (rowIndex !== m) return rowConverter(i, m, rowIndex + 1);
-        return matrix;
-    };
-
-    function columnConverter(j, n, columnIndex = 0) {
-        console.log(matrix[columnIndex][j])
-        matrix[columnIndex][j] = 0;
-        if (columnIndex !== n) return columnConverter(j, n, columnIndex + 1);
-        return matrix;
-    };
-
-    for (let i = 0; i < n; i++) {
-        for (let j = 0; j < m; j++) {
+    // find where all zeroes are located, and store them:
+    for (let i = 0; i < height; i++) {
+        for (let j = 0; j < width; j++) {
             if (matrix[i][j] === 0) {
-                console.log(`this is i: ${i}, this is j: ${j}`)
-                rowConverter(i, m);
-                columnConverter(j, n);
-            };
+                zeroArray.push([i,j]);
+            }
+        }
+    }
+
+    console.log(zeroArray) // [[1,1]]
+    rowConverter(matrix, zeroArray);
+    columnConverter(matrix, zeroArray);
+    return matrix;
+}
+
+function rowConverter(matrix, zeroArray) {
+    let width = matrix[0].length;
+    for (let i = 0; i < zeroArray.length; i++) {
+        for (let j = 0; j < width; j++) {
+            matrix[zeroArray[i][0]][j] = 0;
         }
     }
     return matrix;
-};
+}
 
+function columnConverter(matrix, zeroArray) {
+    let height = matrix.length;
+    for (let i = 0; i < zeroArray.length; i++) {
+        for (let j = 0; j < height; j++) {
+            matrix[j][zeroArray[i][1]] = 0;
+        }
+    }
+    return matrix;
+}
+
+console.log(setZeroes([[1,1,1],[1,0,1],[1,1,1]])) // [[1,0,1],[0,0,0],[1,0,1]];
 console.log(setZeroes([
-    [1,1,1],
-    [1,0,1],
-    [1,1,1]]
-    )); 
-
-    /* 
-    [
-        [1,0,1],
-        [0,0,0],
-        [1,0,1],
-    ]
-    */
+    [0,1,2,0],
+    [3,4,5,2],
+    [1,3,1,5]
+]))
