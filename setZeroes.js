@@ -11,8 +11,7 @@ function setZeroes(matrix) {
             }
         }
     }
-
-    console.log(zeroArray) // [[1,1]]
+    
     rowConverter(matrix, zeroArray);
     columnConverter(matrix, zeroArray);
     return matrix;
