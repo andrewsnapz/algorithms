@@ -1,26 +1,26 @@
 function getPermutations(array) {
-    const permutations = [];
-    permutationsHelper(array, [], permutations);
-    return permutations;
+  const permutations = [];
+  permutationsHelper(array, [], permutations);
+  return permutations;
 }
 
 function permutationsHelper(array, currentPermutation, permutations) {
-    console.log('array: ', array);
-    console.log('currentPermutation: ', currentPermutation);
-    console.log('permutations: ', permutations);
-    
-    if (!array.length && currentPermutation.length) {
-        permutations.push(currentPermutation);
-    } else {
-        for (let i = 0; i < array.length; i++) {
-            const newArray = array.slice(0, i).concat(array.slice(i + 1));
-            const newPermutation = currentPermutation.concat([array[i]]);
-            permutationsHelper(newArray, newPermutation, permutations);
-        }
+  console.log("array: ", array);
+  console.log("currentPermutation: ", currentPermutation);
+  console.log("permutations: ", permutations);
+
+  if (!array.length && currentPermutation.length) {
+    permutations.push(currentPermutation);
+  } else {
+    for (let i = 0; i < array.length; i++) {
+      const newArray = array.slice(0, i).concat(array.slice(i + 1));
+      const newPermutation = currentPermutation.concat([array[i]]);
+      permutationsHelper(newArray, newPermutation, permutations);
     }
+  }
 }
 
-console.log(getPermutations([1,2,3]));
+console.log(getPermutations([1, 2, 3]));
 
 // const permute = letters => {
 //     let permutations = [];
@@ -44,4 +44,4 @@ console.log(getPermutations([1,2,3]));
 
 // };
 
-// console.log(permute([1,2,3])) 
+// console.log(permute([1,2,3]))
