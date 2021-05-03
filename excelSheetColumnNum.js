@@ -1,37 +1,38 @@
 var titleToNumber = function (columnTitle) {
-  let columnLetter = {
-    A: 1,
-    B: 2,
-    C: 3,
-    D: 4,
-    E: 5,
-    F: 6,
-    G: 7,
-    H: 8,
-    I: 9,
-    J: 10,
-    K: 11,
-    L: 12,
-    M: 13,
-    N: 14,
-    O: 15,
-    P: 16,
-    Q: 17,
-    R: 18,
-    S: 19,
-    T: 20,
-    U: 21,
-    V: 22,
-    W: 23,
-    X: 24,
-    Y: 25,
-    Z: 26,
-  };
+//   let columnLetter = {
+//     A: 1,
+//     B: 2,
+//     C: 3,
+//     D: 4,
+//     E: 5,
+//     F: 6,
+//     G: 7,
+//     H: 8,
+//     I: 9,
+//     J: 10,
+//     K: 11,
+//     L: 12,
+//     M: 13,
+//     N: 14,
+//     O: 15,
+//     P: 16,
+//     Q: 17,
+//     R: 18,
+//     S: 19,
+//     T: 20,
+//     U: 21,
+//     V: 22,
+//     W: 23,
+//     X: 24,
+//     Y: 25,
+//     Z: 26,
+//   };
 
   let columnNum = 0;
   for (let i = 0; i < columnTitle.length; i++) {
+    // columnNum += columnTitle[columnTitle[i]] * Math.pow(26, columnTitle.length - (i + 1));
     columnNum +=
-      columnLetter[columnTitle[i]] * Math.pow(26, columnTitle.length - (i + 1));
+      (columnTitle.charCodeAt(i) - 64) * Math.pow(26, columnTitle.length - (i + 1));
   }
   return columnNum;
 };
