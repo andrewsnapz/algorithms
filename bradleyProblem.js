@@ -19,30 +19,28 @@
 // output: object with people who are available during that hour
 // 'hour': ['name', 'name2']
 function getAvailTimes(data) {
-    let outputObj = {};
-    for (let i = 0; i < data.length; i++) {
-        for (let k = 0; k < data[i].hrs.length; k++) {
-            if (!outputObj[data[i].hrs[k]]) {
-                outputObj[data[i].hrs[k]] = [];
-                outputObj[data[i].hrs[k]].push(data[i].name);
-            } else {
-                outputObj[data[i].hrs[k]].push(data[i].name);
-            }
-        }
+  let outputObj = {};
+  for (let i = 0; i < data.length; i++) {
+    for (let k = 0; k < data[i].hrs.length; k++) {
+      if (!outputObj[data[i].hrs[k]]) {
+        outputObj[data[i].hrs[k]] = [];
+        outputObj[data[i].hrs[k]].push(data[i].name);
+      } else {
+        outputObj[data[i].hrs[k]].push(data[i].name);
+      }
     }
-    return outputObj;
-};
+  }
+  return outputObj;
+}
 
-let input = [{ name: 'Joe', hrs: ['10', '11', '12'] }, { name: 'Amy', hrs: ['11'] }];
-console.log(getAvailTimes(input));
+// let input = [
+//   { name: "Joe", hrs: ["10", "11", "12"] },
+//   { name: "Amy", hrs: ["11"] },
+// ];
+// console.log(getAvailTimes(input));
 
-
-
-
-
-
-  /// --- Test -----------------------------------
-  /// No need to code nor understand the code here
+/// --- Test -----------------------------------
+/// No need to code nor understand the code here
 //   const Mocha = require('mocha');
 //   const assert = require('assert');
 //   const mocha = new Mocha();
@@ -96,6 +94,6 @@ console.log(getAvailTimes(input));
 //       const len3 = Object.values(result[2])[0].length;
 //       assert.equal(len3, 2);
 //       assert.ok(hr3 === '17' || '10 11 12 13 14'.split(' ').includes(hr3));
-//     })  
+//     })
 //   })
 //   mocha.run();
