@@ -10,6 +10,7 @@
  * @param {ListNode} l2
  * @return {ListNode}
  */
+
 const addTwoNumbers = (l1, l2) => {
   let l1Sum = gatherListSum(l1);
   let l2Sum = gatherListSum(l2);

@@ -1,11 +1,5 @@
-function NestedIterator(nestedList) {
+function NestedIterator(nestedList) {}
 
-};
+NestedIterator.prototype.hasNext = function () {};
 
-NestedIterator.prototype.hasNext = function() {
-
-};
-
-NestedIterator.prototype.next = function() {
-
-};
+NestedIterator.prototype.next = function () {};
