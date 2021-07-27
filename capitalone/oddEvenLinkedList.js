@@ -21,7 +21,7 @@ const oddEvenList = (head) => {
   let curr = head;
   let idx = 1;
 
-  while (cur !== null) {
+  while (curr !== null) {
     if (idx % 2 === 1) {
       currOdd.next = curr;
       currOdd = curOdd.next;
