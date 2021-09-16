@@ -41,23 +41,25 @@
 //   console.log(unqiueCombinations);
 // };
 
-function uniquePath(m, n) {
-  const result = [[]];
-  // Adding the first row of ’1’s to the array
-  for (let i = 0; i < n; i += 1) {
-    result[0].push(1);
-  }
-  // iterating over each of the rows
-  for (let i = 1; i < m; i += 1) {
-    result.push([1]); // adding 1 to the first, left most square
+var uniquePaths = function (m, n) {
+  let matrix = [];
+  let firstRow = new Array(n).fill(1);
+  matrix.push(firstRow);
 
-    // Getting the total for the current square
-    for (let j = 1; j < n; j += 1) {
-      result[i][j] = result[i][j - 1] + result[i - 1][j];
+  for (let i = 1; i < m; i++) {
+    let arr = new Array(n).fill(0);
+    arr[0] = 1;
+    matrix[i] = arr;
+  }
+
+  for (let n = 1; n < matrix.length; n++) {
+    for (let m = 1; m < matrix[0].length; m++) {
+      matrix[n][m] = matrix[n - 1][m] + matrix[n][m - 1];
     }
   }
-  // Return the bottom right hand value that has the total.
-  return result[m - 1][n - 1];
-}
+
+  return matrix[matrix.length - 1][matrix[0].length - 1];
+};
+
 console.log(uniquePath(3, 2)); // 3
 console.log(uniquePath(3, 7)); // 28
