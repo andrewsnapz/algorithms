@@ -1,33 +1,32 @@
-const letterCombinations = digits => {
-    const output = [];
-    if (digits.length) {
-        const numberChars = {
-            '2': ['a','b','b'],
-            '3': ['d','e','f'],
-            '4': ['g','h','i'],
-            '5': ['j','k','l'],
-            '6': ['m','n','o'],
-            '7': ['p','q','r','s'],
-            '8': ['t','u','v'],
-            '9': ['w','x','y','z']
-        };
-        solveDigits(output, numberChars, digits);
-    }
-    return output;
+const numObj = {
+  2: "abc",
+  3: "def",
+  4: "ghi",
+  5: "jkl",
+  6: "mno",
+  7: "pqrs",
+  8: "tuv",
+  9: "wxyz",
 };
 
-function solveDigits(output, numberChars, digits, selection='') {
-    if (!digits.length) {
-        output.push(selection);
-        return;
-    }
+function letterCombinations(digits) {
+  if (!digits.length) return [];
+  let answer = [];
 
-    let characters = numberChars[digits[0]];
-
-    for (let i=0 ; i < characters.length; i++) {
-        let newSelection = selection + characters[i];
-        solveDigits(output, numberChars, digits.slice(1), newSelection);
+  function dfs(idx, string) {
+    if (digits.length === string.length) {
+      answer.push(string);
+    } else {
+      let letters = numObj[digits[idx]];
+      for (let i = 0; i < letters.length; i++) {
+        dfs(idx + 1, string + letters[i]);
+      }
     }
+  }
+
+  dfs(0, "");
+  return answer;
 }
 
-console.log(letterCombinations('23'))
+console.log(letterCombinations("23"));
+console.log(letterCombinations("246"));

@@ -70,7 +70,6 @@ function addingArrays(
   }
 
   let sum = numObj[arr1[idx]] + numObj[arr2[idx]] + numObj[remainder];
-  // console.log(`sum: ${sum}`);
 
   if (sum >= 10) {
     result.unshift(`${sum % 10}`);
